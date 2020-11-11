@@ -1,6 +1,7 @@
 {
   "settings": {
     "index": {
+      "max_ngram_diff" : "50",
       "analysis": {
         "filter": {
           "autocomplete_filter": {
@@ -53,57 +54,55 @@
     }
   },
   "mappings": {
-    "doc": {
-      "properties": {
-        "aboutMe": {
-          "type": "text"
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "fullName": {
-          "type": "text",
-          "fields": {
-            "ngram": {
-              "type": "text",
-              "analyzer": "delimit_edgengram"
-            }
+    "properties": {
+      "aboutMe": {
+        "type": "text"
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "fullName": {
+        "type": "text",
+        "fields": {
+          "ngram": {
+            "type": "text",
+            "analyzer": "delimit_edgengram"
+          }
+        }
+      },
+      "ldap": {
+        "type": "text",
+        "fields": {
+          "ngram": {
+            "type": "text",
+            "analyzer": "delimit_edgengram"
           }
         },
-        "ldap": {
-          "type": "text",
-          "fields": {
-            "ngram": {
-              "type": "text",
-              "analyzer": "delimit_edgengram"
-            }
-          },
-          "analyzer": "lowercase_keyword"
+        "analyzer": "lowercase_keyword"
+      },
+      "managerLdap": {
+        "type": "text",
+        "fields": {
+          "ngram": {
+            "type": "text",
+            "analyzer": "delimit_edgengram"
+          }
         },
-        "managerLdap": {
-          "type": "text",
-          "fields": {
-            "ngram": {
-              "type": "text",
-              "analyzer": "delimit_edgengram"
-            }
-          },
-          "analyzer": "lowercase_keyword"
-        },
-        "skills": {
-          "type": "text"
-        },
-        "teams": {
-          "type": "text"
-        },
-        "title": {
-          "type": "keyword",
-          "normalizer": "custom_normalizer"
-        },
-        "urn": {
-          "type": "keyword",
-          "normalizer": "custom_normalizer"
-        }
+        "analyzer": "lowercase_keyword"
+      },
+      "skills": {
+        "type": "text"
+      },
+      "teams": {
+        "type": "text"
+      },
+      "title": {
+        "type": "keyword",
+        "normalizer": "custom_normalizer"
+      },
+      "urn": {
+        "type": "keyword",
+        "normalizer": "custom_normalizer"
       }
     }
   }
